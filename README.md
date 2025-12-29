@@ -25,6 +25,7 @@ Take a look at the latest version of Framework7: <a href="https://github.com/fra
 - The link beneath the touch indicator becomes active automatically
 - Linked pages are navigated to only after the animation has finished
 - Minimum and maximum positions of the touch indicator are restricted via clamping
+- The plugin automatically snaps to the link that is most covered by the touch indicator
 - Animation resets whenever the web app loses or regains focus
 
 ## Markup
