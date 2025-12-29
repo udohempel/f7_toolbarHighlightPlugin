@@ -35,7 +35,7 @@ pages/welcome.f7:
 				<div class="toolbar-pane">
 					<div data-target="/welcome/" class="link link-active">
 						<i class="icon f7-icons">house_fill</i>
-						<span class="label">Willkommen</span>
+						<span class="label">Welcome</span>
 					</div>
 					<div data-target="/blog/" class="link">
 						<i class="icon f7-icons">book_fill</i>
