@@ -61,4 +61,4 @@ Furthermore, this approach "outsmarts" the router: it ensures the animation comp
 Copy the files toolbarHighlightPlugin.js and toolbarHighlightPlugin.css into your project. 
 Link them in your index file after the Framework7 files. 
 Create your toolbar as shown in the example. 
-Please note that the links are not standard HTML links, instead the link destination is specified in the data-target attribute.
+Please note that the links are not standard HTML links, instead the link destination is specified in the `data-target` attribute.
