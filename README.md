@@ -1,6 +1,6 @@
 <h1 align="center">Framework7 - Toolbar Highlight Plugin</h1>
 
-<p align="center">Plugin for integrating a toolbar in iOS 26.2 design (Liquid Glass) for Framework7 v9 apps</p>
+<p align="center">Plugin to integrating a toolbar in iOS 26.2 design (Liquid Glass) for Framework7 v9 apps</p>
 
 ## Example
 
