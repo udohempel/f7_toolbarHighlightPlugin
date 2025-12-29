@@ -4,6 +4,8 @@
 
 ## Example
 
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://udohempel.github.io/f7_toolbarHighlightPlugin/)
+
 <p align="center">
 <img src="https://github.com/user-attachments/assets/4f971676-f584-4798-b45b-a657f52fecc9">
 </p>
