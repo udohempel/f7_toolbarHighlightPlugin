@@ -1,0 +1,58 @@
+<template>
+	<div class="page no-swipeback" name="welcome" id="welcome">
+		<div class="navbar navbar-large">
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner sliding">
+				<div class="left">
+					<a href="#" class="link icon-only panel-open" data-panel="left">
+						<i class="icon material-icons">menu</i>
+					</a>
+				</div>
+				<div class="title">
+					Welcome
+				</div>
+				<div class="title-large">
+					<div class="title-large-text">
+						Welcome
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="toolbar toolbar-bottom toolbar-highlight-enabled">
+			<div class="toolbar-inner">
+				<div class="toolbar-pane">
+					<div data-target="/welcome/" class="link link-active">
+						<i class="icon f7-icons">house_fill</i>
+						<span class="label">Willkommen</span>
+					</div>
+					<div data-target="/blog/" class="link">
+						<i class="icon f7-icons">book_fill</i>
+						<span class="label">Blog</span>
+					</div>							
+					<div data-target="/shop/" class="link">
+						<i class="icon f7-icons">cart_fill</i>
+						<span class="label">Shop</span>
+					</div>
+					<div data-target="/bookmarks/" class="link">
+						<i class="icon f7-icons">star_fill</i>
+						<span class="label">Bookmarks</span>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<div class="page-content">
+		</div>
+	</div>
+</template>
+<style>
+
+</style>
+<script>
+	export default (props, { $f7, $on, $store, $update }) => {
+
+		$on('pageInit', () => {
+
+		});
+		return $render;
+	}
+</script>

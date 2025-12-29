@@ -1,0 +1,179 @@
+/**
+ * TOOLBAR HIGHLIGHT PLUGIN - CSS
+ * Fokus: iOS Glas-Effekt & Dynamischer Fisheye-Fokus
+ */
+.ios .toolbar-highlight-enabled::before {
+  backdrop-filter: blur(1px);
+  mask-image: linear-gradient(to top,#000 calc(50% + var(--f7-safe-area-bottom, 0px)),#0000 100%);
+}
+/* 1. BASIS LAYOUT & CONTAINER */
+
+html.device-standalone.ios .toolbar-highlight-enabled {
+  bottom:-20px;
+
+}
+
+.ios .toolbar-highlight-enabled .toolbar-pane {
+  display: flex !important;
+  position: relative !important;
+  backdrop-filter: saturate(180%) blur(16px)!important;
+  background-color: var(--f7-glass-bg-color);
+  flex: 1;
+  height: 100%;  
+  min-height: 68px;
+  margin:0 2px;
+  align-items: stretch;
+  /* Überlauf für den vertikalen Expand-Effekt erlauben */
+  overflow: visible !important; 
+  transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Der Squish-Effekt beim Drücken der Toolbar */
+.ios .toolbar-highlight-enabled .toolbar-pane.is-pressed {
+  transform: scale(1.01);
+}
+
+/* 2. LINK STYLING & FISHEYE TRANSITION */
+.ios .toolbar-highlight-enabled .link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;  
+  position: relative;
+  z-index: 5; 
+  color: var(--f7-toolbar-link-color, #757575);
+  
+  /* WICHTIG: Kurze lineare Transition für flüssigen Fisheye-Effekt */
+  transition: transform 100ms linear, color 250ms;
+  will-change: transform;
+
+  /* Touch-Optimierung */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+.ios .toolbar-highlight-enabled .link * {
+  pointer-events: none;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
+.ios .toolbar-highlight-enabled .link-active {
+  color: var(--f7-theme-color);
+}
+
+.ios .toolbar-highlight-enabled .icon {
+  font-size: 24px;
+  height: 24px;
+  transition: filter 250ms;
+}
+
+.ios .toolbar-highlight-enabled .label {
+  font-size: 10px;
+  line-height: 1.2;
+  margin-top: 2px;
+  padding: 0 2px;
+  transition: filter 250ms;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  width:100%;
+  overflow:hidden;
+  text-align:center;
+}
+
+/* 3. INDIKATOREN DESIGN (Glas-Effekt) */
+.ios .toolbar-indicator-highlight,
+.ios .toolbar-hover-indicator {
+  position: absolute;
+  left: 0;
+  border-radius: 100px;
+  pointer-events: none;
+  display: block !important;
+  will-change: transform, width, opacity;
+}
+
+/* Permanenter Indikator (Aktiver Tab) */
+.ios .toolbar-indicator-highlight {
+  top: 0px;
+  bottom: 0px;
+  z-index: 1;
+  opacity: 1;
+  transition: transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1.0), width 400ms cubic-bezier(0.25, 0.1, 0.25, 1.0), opacity 200ms;
+  will-change: transform, width;
+}
+
+.ios .toolbar-indicator-highlight:before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 100px;
+  background-color: var(--f7-tabbar-link-highlight-bg-color, rgba(0,0,0,0.05));
+}
+
+.ios .toolbar-indicator-highlight.is-hidden {
+  opacity: 0 !important;
+  transition: opacity 100ms;
+}
+
+/* Hover/Press Indikator (Folgt dem Finger) */
+.ios .toolbar-hover-indicator {
+  top: 6px;
+  bottom: 6px;
+  z-index: 2;
+  opacity: 0;
+  background-color: var(--f7-tabbar-link-highlight-active-bg-color, rgba(0, 0, 0, 0.08));
+  box-shadow: var(--f7-glass-shadow-thumb);
+  /* Transform wird via JS gesteuert, Breite/Höhe via CSS animiert */
+  transition: opacity 150ms, top 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), bottom 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ios .toolbar-hover-indicator.is-active {
+  top: -4px;
+  bottom: -4px;
+  opacity: 1;
+}
+
+.ios .toolbar-hover-indicator:before {
+	background-color: var(--f7-tabbar-link-highlight-bg-color)
+}
+
+.ios .toolbar-hover-indicator:after {
+	background-color: var(--f7-tabbar-link-highlight-active-bg-color);
+	box-shadow: var(--f7-glass-shadow-thumb);
+	opacity: 0
+}
+.ios .toolbar-hover-indicator.is-active:after {
+	opacity: 1
+}
+
+/* 4. OPTISCHE FEEDBACK-EFFEKTE */
+/* Verstärkt den Glanz unter dem Finger */
+.ios .toolbar-hover-indicator:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 68px;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.3) 0%, transparent 70%);
+  opacity: 0.5;
+}
+
+/* 5. DARK MODE */
+.dark.ios .toolbar-indicator-highlight:before {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark.ios .toolbar-hover-indicator {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* 6. SICHERHEIT */
+.ios .toolbar-highlight-enabled .link.is-scaling {
+  z-index: 10;
+}
