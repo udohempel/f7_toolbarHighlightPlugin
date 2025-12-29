@@ -9,7 +9,7 @@ const ToolbarHighlightPlugin = {
       pressStartTime: 0,
       longPressTimer: null,
       lastFocussedIndex: -1, 
-      clampingOffset: 8,    
+      clampingOffset: 4,    
       expansionOffset: 8,   
 
       ensureIndicators($container) {
