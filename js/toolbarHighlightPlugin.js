@@ -1,8 +1,3 @@
-/**
- * Framework7 Toolbar Highlight Plugin - Final Version
- * Features: Fisheye, Haptik, Live-Focus, Smooth-Click & Dynamic Padding (Nur 1. Link +2px)
- */
-
 const ToolbarHighlightPlugin = {
   name: 'toolbarHighlight',
   create() {
@@ -50,7 +45,6 @@ const ToolbarHighlightPlugin = {
         const $activeLink = $container.find('.link-active').eq(0);
 
         if ($activeLink.length) {
-          // NEU: Nur wenn es der erste Link ist (Index 0), gibt es +2px Padding
           const isFirst = $activeLink.index() === 0;
           const extraPadding = isFirst ? 2: 0;
           
@@ -214,7 +208,6 @@ const ToolbarHighlightPlugin = {
         if (app.toolbarHighlight.isLongPress) {
           $finalLink = $pane.find('.link-active');
           
-          // NEU: Padding-Logik auch hier für den ersten Link
           const isFirst = $finalLink.index() === 0;
           const extraPadding = isFirst ? 2 : 0;
 
